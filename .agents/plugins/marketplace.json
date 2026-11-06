@@ -1,0 +1,22 @@
+{
+  "name": "skill-packager-marketplace",
+  "interface": {
+    "displayName": "Skill Packager"
+  },
+  "plugins": [
+    {
+      "name": "skill-packager",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/dobeutech/skill-packager-skill.git",
+        "path": "./skill-packager",
+        "ref": "main"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "skill-management"
+    }
+  ]
+}

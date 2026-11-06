@@ -1,0 +1,44 @@
+name: Deploy Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Build site
+        run: |
+          mkdir -p _site/static
+          cp static/install-claude-desktop.html _site/static/
+          cat > _site/index.html <<'HTML'
+          <!DOCTYPE html>
+          <meta charset="utf-8">
+          <title>Skill Packager</title>
+          <meta http-equiv="refresh" content="0; url=./static/install-claude-desktop.html">
+          <link rel="canonical" href="./static/install-claude-desktop.html">
+          <p><a href="./static/install-claude-desktop.html">Install Skill Packager in Claude Desktop</a></p>
+          HTML
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          name: github-pages
+
+      - id: deployment
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: github-pages

@@ -1,0 +1,24 @@
+{
+  "name": "skill-packager-marketplace",
+  "owner": {
+    "name": "Yaniv Golan",
+    "email": "jeremyw@dobeu.net"
+  },
+  "metadata": {
+    "description": "Package AI agent skills into deployment formats — .zip, .skill, Claude plugin, Claude marketplace, Cursor plugin, Cursor marketplace, native Codex/ChatGPT plugin, ChatGPT/Manus zip, Codex CLI, NanoClaw marketplace, OpenClaw/ClawHub, Agent Skills standard (.agents/), or a universal repo with all formats + CI/CD.",
+    "version": "0.5.0"
+  },
+  "plugins": [
+    {
+      "name": "skill-packager",
+      "source": "./skill-packager",
+      "description": "Package AI agent skills into deployment formats — .zip, .skill, Claude plugin, Claude marketplace, Cursor plugin, Cursor marketplace, native Codex/ChatGPT plugin, ChatGPT/Manus zip, Codex CLI, NanoClaw marketplace, OpenClaw/ClawHub, Agent Skills standard (.agents/), or a universal repo with all formats + CI/CD.",
+      "author": {
+        "name": "Yaniv Golan",
+        "email": "jeremyw@dobeu.net"
+      },
+      "category": "skill-management",
+      "tags": ["skills", "packaging", "plugins", "marketplace", "claude", "cursor"]
+    }
+  ]
+}
